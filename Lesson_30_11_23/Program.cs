@@ -500,7 +500,7 @@ Console.WriteLine(" Если пешеход попадет под машину -
 Console.WriteLine(" Ваш выбор (1 - да, 2 - нет)");
 Console.ForegroundColor = ConsoleColor.White;
 int choice = int.Parse(Console.ReadLine());
-int choiceGame = 0, countGame = 0, point = 0, time = 2000;
+int choiceGame = 0, countGame = 0, point = 0, time = 0, level = 0;
 
 
 switch (choice)
@@ -512,8 +512,14 @@ switch (choice)
             Console.WriteLine("ГОТОВЫ ? (если да, нажмите любую кнопку,  нет - нажмите  0)");
             choiceGame = int.Parse(Console.ReadLine());
 
+
             while (countGame < 5)
             {
+                Console.WriteLine("Выберите уровень сложности: 1 - легкий, 2 - средний, 3 - сложный");
+                level = int.Parse(Console.ReadLine());
+                if (level == 1) time = 6000;
+                else if (level == 2) time = 4000;
+                else if (level == 3) time = 2000;
                 Console.Clear();
                 Console.WriteLine("\t\tРАУНД  1");
                 printRight(roadRgame1);
@@ -553,7 +559,6 @@ switch (choice)
                 if (choiceGame == 1)
                 {
                     printRight(roadRgameWin2);
-                    Thread.Sleep(time);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("ПРАВИЛЬНО!       Пешеходы остались живы!!!");
                     Thread.Sleep(time);
@@ -564,7 +569,6 @@ switch (choice)
                 if (choiceGame == 2)
                 {
                     printRight(roadRgameWin2);
-                    Thread.Sleep(time);
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("НЕ  ПРАВИЛЬНО.      Пешеходам МОЖНО переходить!!!");
                     Console.WriteLine("ВЫ НЕ угадали");
@@ -583,7 +587,6 @@ switch (choice)
                 if (choiceGame == 1)
                 {
                     printLeft(roadLgameWin3);
-                    Thread.Sleep(time);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("ПРАВИЛЬНО!       Пешеходы остались живы!!!");
                     Thread.Sleep(time);
@@ -594,7 +597,6 @@ switch (choice)
                 if (choiceGame == 2)
                 {
                     printLeft(roadLgameWin3);
-                    Thread.Sleep(time);
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("НЕ  ПРАВИЛЬНО.      Пешеходам МОЖНО переходить!!!");
                     Console.WriteLine("ВЫ НЕ угадали");
@@ -641,7 +643,6 @@ switch (choice)
                 if (choiceGame == 1)
                 {
                     printRight(roadRgameWin5);
-                    Thread.Sleep(time);
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("ПРАВИЛЬНО!       Пешеходы остались живы!!!");
                     Thread.Sleep(time);
@@ -652,7 +653,6 @@ switch (choice)
                 if (choiceGame == 2)
                 {
                     printRight(roadRgameWin5);
-                    Thread.Sleep(time);
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("НЕ  ПРАВИЛЬНО.      Пешеходам МОЖНО переходить!!!");
                     Console.WriteLine("ВЫ НЕ угадали");
